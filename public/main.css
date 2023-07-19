@@ -3,15 +3,22 @@
   padding: 0;
 }
 
-li {
-  /* list-style: none; */
-  display: flex;
-  flex-direction: column;
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100vh;
+  margin: 0 auto;
 }
-ul img {
-  list-style: none;
+ul {
   display: flex;
   flex-wrap: wrap;
-  width: 25%;
+}
+img {
+  width: 100%;
   height: auto;
+  position: relative;
+  background-size: cover;
+}
+
+@media screen {
 }

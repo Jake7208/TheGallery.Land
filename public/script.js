@@ -3,7 +3,7 @@ fetch("http://localhost:4000/api/getPath")
   .then((objectData) => {
     const paths = objectData.path; // Access the 'path' property from the objectData
 
-    const listElement = document.createElement("li"); // Create a new <ul> element
+    const listElement = document.createElement("section"); // Create a new <ul> element
 
     paths.forEach((path) => {
       const listItem = document.createElement("ul");
