@@ -1,0 +1,160 @@
+/* Common styles for both media queries */
+nav {
+  display: flex;
+  position: absolute;
+  right: 10%;
+  top: 2%;
+}
+
+.logoAPPlicationSide {
+  position: absolute;
+  left: 3%;
+  top: 1%;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 32px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+a svg {
+  fill: #000000;
+  transition: all 0.2s;
+}
+
+a svg:hover {
+  fill: #006d53;
+  transition: all 0.2s;
+}
+
+.active {
+  color: #006d53;
+  cursor: default;
+}
+
+nav a:hover {
+  transition: all 0.2s;
+  color: #006d53;
+}
+
+/* Media query for screens with max-width: 1024px and min-width: 768px */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .closeHamburger {
+    display: none;
+  }
+  .logoAPPlicationSide {
+    display: none;
+  }
+
+  ul {
+    gap: 15px;
+  }
+}
+
+/* Media query for screens with max-width: 768px */
+/* Common styles for screens with max-width: 768px */
+@media screen and (max-width: 768px) {
+  nav {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    background: #000000d8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+  }
+  nav a {
+    font-size: 2rem;
+    color: #c1c1c1;
+  }
+  ul {
+    z-index: 10000;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  a svg {
+    display: flex;
+    fill: #c1c1c1;
+  }
+
+  .hamburger svg {
+    fill: #000000;
+    position: absolute;
+    border: none;
+    background: none;
+    cursor: pointer;
+    right: 5%;
+    top: 3%;
+    transform: translateY(0);
+    transition: transform 0.1s ease-in-out;
+    animation: moveUpDown 2s infinite alternate;
+  }
+  .hamburger svg:hover {
+    fill: #006d53;
+    transform: translateY(1px);
+    transition: all 0.2s;
+  }
+  .closeHamburger svg {
+    fill: #e7e7e7;
+    position: absolute;
+    border: none;
+    background: none;
+    cursor: pointer;
+    right: 5%;
+    top: 3%;
+    transform: translateY(1px);
+    transition: transform 0.1s ease-in-out;
+    animation: moveUpDown 2s infinite alternate;
+  }
+  .closeHamburger svg:hover {
+    fill: #006d53;
+    transform: translateY(1px);
+    transition: all 0.2s;
+  }
+
+  .logoAPPlicationSide {
+    display: none;
+  }
+}
+
+/* Media query for screens with min-width: 1024px */
+@media screen and (min-width: 1024px) {
+  .closeHamburger {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+  }
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px); /* Move up by 10 pixels */
+  }
+}

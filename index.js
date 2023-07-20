@@ -74,7 +74,7 @@ app.get("/api/getPath", async (req, res) => {
   }
 });
 
-app.get("/api/getAllFromGenre", async (req, res) => {
+app.get("/api/getAllFromFantasy", async (req, res) => {
   try {
     const ImagesFromGenre = await imagesRouter.find({ genre: /fantasy/ });
     res.json({ imageFromGenre: ImagesFromGenre });

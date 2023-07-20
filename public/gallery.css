@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inria Serif", serif;
+}
+html,
+body {
+  width: 100%;
+  overscroll-behavior: smooth;
+  min-height: 100%;
+  background: #bad0b8;
+}
+
+.welcome {
+  display: grid;
+  place-content: center;
+  height: 80vh;
+}
+.genres {
+  display: flex;
+  justify-content: center;
+  gap: 18%;
+  margin-bottom: 40%;
+}
+.genres a {
+  cursor: pointer;
+}
+
+.genres h2 {
+  color: #404040;
+  font-size: calc(100vw / 40);
+  /* font-size: clamp(2rem, 2vw, 2rem); */
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 72px */
+}
+.genres h2:hover {
+  transition: 0.2s all;
+  color: #006d53;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+  color: #006d53;
+  font-size: calc(100vw / 25);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 96px */
+}
+
+.Gallery_Section {
+  height: 100%;
+  max-width: 2560px;
+  margin: 0 auto; /* Center the container horizontally */
+  --gap: 2px;
+  --num-cols: 4;
+  --row-height: 300px;
+  box-sizing: border-box;
+  padding: var(--gap);
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: var(--gap);
+}
+
+.Gallery_Section img {
+  width: 100%;
+  height: 100%;
+  /* padding: var(--gap); */
+  object-fit: cover;
+  object-position: top;
+  position: relative;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.393);
+}
+/* .box {
+  height: 100vh;
+} */
+.v-stretch {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.Gallery_Section a:hover {
+  cursor: pointer;
+  transition: all 1s;
+  transform: scale(1.03);
+  filter: brightness(30%);
+}
+
+/* anything over 1440px */
+@media screen and (min-width: 1440px) {
+  .Gallery_Section {
+    --num-cols: 5;
+    --row-height: 400px;
+  }
+  .v-stretch {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}
+
+/* anything under 1024 pixels */
+@media screen and (max-width: 1024px) {
+  .Gallery_Section {
+    --num-cols: 3;
+    --row-height: 300px;
+    padding: var(--gap);
+  }
+  .genres h2 {
+    color: #404040;
+    font-size: calc(100vw / 20);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 72px */
+  }
+  h1 {
+    margin-bottom: 10%;
+    text-align: center;
+    color: #006d53;
+    font-size: calc(100vw / 10);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 96px */
+  }
+  .v-stretch {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Gallery_Section {
+    --num-cols: 2;
+    --row-height: 300px;
+    padding: var(--gap);
+  }
+  .genres h2 {
+    color: #404040;
+    font-size: calc(100vw / 20);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 72px */
+  }
+  h1 {
+    margin-bottom: 10%;
+    text-align: center;
+    color: #006d53;
+    font-size: calc(100vw / 10);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 96px */
+  }
+  .v-stretch {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
