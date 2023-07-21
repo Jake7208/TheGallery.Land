@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  overscroll-behavior: smooth;
+  min-height: 100%;
+  background: #bad0b8;
+}
+.HeroText {
+  width: 628px;
+  height: 216px;
+  display: flex;
+  flex-direction: row;
+}
+.HeroText h1 {
+  text-align: right;
+  font-family: "Inter";
+  color: #171717;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: bolder;
+  line-height: 150%; /* 72px */
+}
+.text-gradient {
+  color: #006d53;
+}

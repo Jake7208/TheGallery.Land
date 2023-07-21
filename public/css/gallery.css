@@ -41,7 +41,8 @@ body {
   color: #006d53;
 }
 
-h1 {
+.welcome h1 {
+  z-index: 10000;
   margin-bottom: 0;
   text-align: center;
   color: #006d53;
@@ -67,6 +68,7 @@ h1 {
 }
 
 .Gallery_Section img {
+  border-radius: 5px;
   width: 100%;
   height: 100%;
   /* padding: var(--gap); */

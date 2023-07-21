@@ -77,12 +77,20 @@ app.get("/api/getPath", async (req, res) => {
 app.get("/api/getAllFromFantasy", async (req, res) => {
   try {
     const ImagesFromGenre = await imagesRouter.find({ genre: /fantasy/ });
-    res.json({ imageFromGenre: ImagesFromGenre });
+    res.json({ ImagesFromGenre: ImagesFromGenre });
   } catch (err) {
     console.log(err);
   }
 });
 
+app.get("/api/getAllFromResumes", async (req, res) => {
+  try {
+    const ImagesFromGenre = await imagesRouter.find({ genre: /resumes/ });
+    res.json({ ImagesFromGenre: ImagesFromGenre });
+  } catch (err) {
+    console.log(err);
+  }
+});
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

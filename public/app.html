@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page for Gallery.Land</title>
+    <title>Gallery Land Gallery Section</title>
+    <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="./css/nav.css" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   </head>
   <body>
-    <!--@Jake7208 IMPORTANT NAV AND HAMBURGER UNIT -->
     <button class="hamburger">
       <svg
         width="40"
@@ -23,10 +26,10 @@
       </svg>
     </button>
     <nav class="nav">
-      <a href="app.html" class="landingApplicationLogo">
+      <a href="app.html" class="logoAPPlicationSide">
         <svg
-          width="560"
-          height="91"
+          width="400"
+          height="80"
           viewBox="0 0 581 126"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -76,10 +79,10 @@
       </button>
       <ul>
         <li>
-          <a href="index.html" class="active">Home</a>
+          <a href="index.html">Home</a>
         </li>
         <li>
-          <a href="app.html">Gallery</a>
+          <a href="#" class="active">Gallery</a>
         </li>
         <li>
           <a href="#">Docs</a>
@@ -119,26 +122,27 @@
         </li>
       </ul>
     </nav>
-    <!--@Jake7208 IMPORTANT NAV AND HAMBURGER UNIT -->
 
-    <!-- @Jake7208 BODY IMAGES SECTION WITH GSAP ANIMATION AND HERO TEXT -->
-    <img
-      class="hero-image"
-      src="landingImages/frontpageImage.png"
-      alt="Hero Image"
-    />
-    <img
-      class="hero-image2 under"
-      src="landingImages/frontpageImage2.png"
-      alt="Hero Image"
-    />
-    <div class="HeroText">
-      <h1>
-        <span class="text-gradient">Empowering </span>Creativity<br />
-        with an Abundance of<br />
-        <span class="text-gradient">Royalty-Free Images.</span>
-      </h1>
+    <div class="welcome">
+      <h1>The Gallery Land</h1>
+      <div class="genres">
+        <a id="fantasy"><h2>Fantasy</h2></a>
+        <a id="resumes"><h2>Resumes</h2></a>
+        <a id="technology"><h2>Technology</h2></a>
+      </div>
     </div>
+    <div class="modal">
+      <div class="modal-content">
+        <p class="modal-title"></p>
+        <p class="modal-genre"></p>
+        <p class="modal-type"></p>
+        <img class="modal-image" src="" alt="Modal Image" />
+        <a href="#" class="download-link" download>Download PNG</a>
+        <span class="close-modal">&times;</span>
+      </div>
+    </div>
+
+    <div class="gallery"></div>
   </body>
   <script src="script.js"></script>
   <script src="burger.js"></script>

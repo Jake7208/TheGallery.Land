@@ -14,6 +14,7 @@ const tl = gsap
     scrub: true,
   });
 
+// every 1 and 25 images will have a v-stretch class that will make them span 2 rows and cols
 function addVStretchClass(listItems) {
   const interval = 25; // Add the "v-stretch" class after every 25 images
   for (let i = 0; i < listItems.length; i++) {
@@ -32,124 +33,107 @@ function shuffleArray(array) {
   return array;
 }
 
-// Fetch all images and their data from the /api/getAll endpoint
-fetch("http://localhost:4000/api/getAll")
-  .then((response) => response.json())
-  .then((objectData) => {
-    const shuffledData = shuffleArray(objectData.allImages);
+// clears the dom so that new images can load in their place
+function clearAll() {
+  const galleryDiv = document.querySelector(".gallery");
+  galleryDiv.innerHTML = "";
+}
 
-    const listElement = document.createElement("section");
-    listElement.className = "Gallery_Section";
+// loads the dom for the images
+function loadDom(array) {
+  const listElement = document.createElement("section");
+  listElement.className = "Gallery_Section";
 
-    const listItems = [];
+  const listItems = [];
 
-    shuffledData.forEach((image) => {
-      const listItem = document.createElement("a");
-      listItem.className = "Gallery_Item";
-      const imgElement = document.createElement("img");
+  array.forEach((image) => {
+    // console.log(image);
+    const listItem = document.createElement("a");
+    listItem.className = "Gallery_Item";
+    const imgElement = document.createElement("img");
 
-      imgElement.src = `.././images/${image.path}`;
-      listItem.appendChild(imgElement);
-      listElement.appendChild(listItem);
+    imgElement.src = `.././images/${image.genre}/${image.name}`;
 
-      listItem.addEventListener("click", () => {
-        const modal = document.querySelector(".modal");
-        const modalTitle = document.querySelector(".modal-title");
-        const modalGenre = document.querySelector(".modal-genre");
-        const modalImage = document.querySelector(".modal-image");
-        const modalType = document.querySelector(".modal-type");
+    listItem.appendChild(imgElement);
+    listElement.appendChild(listItem);
 
-        const downloadLink = document.querySelector(".download-link");
-
-        const imageName = image.name.split(".")[0];
-        modalTitle.textContent = "Title: " + imageName;
-        modalGenre.textContent = "Genre: " + image.genre;
-        modalType.textContent = "Type: " + image.type;
-        modalImage.src = imgElement.src;
-        downloadLink.href = imgElement.src;
-        downloadLink.download = image.path.split("/").pop();
-
-        modal.style.display = "block";
-      });
-
-      listItems.push(listItem);
-    });
-
-    const closeModal = document.querySelector(".close-modal");
-    closeModal.addEventListener("click", () => {
+    listItem.addEventListener("click", () => {
       const modal = document.querySelector(".modal");
-      modal.style.display = "none";
+      const modalTitle = document.querySelector(".modal-title");
+      const modalGenre = document.querySelector(".modal-genre");
+      const modalImage = document.querySelector(".modal-image");
+      const modalType = document.querySelector(".modal-type");
+
+      const downloadLink = document.querySelector(".download-link");
+
+      const imageName = image.name.split(".")[0];
+      modalTitle.textContent = "Title: " + imageName;
+      modalGenre.textContent = "Genre: " + image.genre;
+      modalType.textContent = "Type: " + image.type;
+      modalImage.src = imgElement.src;
+      downloadLink.href = imgElement.src;
+      downloadLink.download = image.path.split("/").pop();
+
+      modal.style.display = "block";
     });
 
-    const galleryDiv = document.querySelector(".gallery");
-    galleryDiv.appendChild(listElement);
-
+    listItems.push(listItem);
     addVStretchClass(listItems);
-  })
-  .catch((error) => {
-    console.error(error);
   });
 
-// Call the function to generate the gallery after everything on the page has loaded
+  const closeModal = document.querySelector(".close-modal");
+  closeModal.addEventListener("click", () => {
+    const modal = document.querySelector(".modal");
+    modal.style.display = "none";
+  });
+
+  const galleryDiv = document.querySelector(".gallery");
+
+  galleryDiv.appendChild(listElement);
+}
+
+// when the window is loaded it will get all the images from the /api/getAll endpoint
 window.onload = () => {
-  generateGallery();
-  const modal = document.querySelector(".modal");
-  modal.style.display = "block";
+  // Fetch all images and their data from the /api/getAll endpoint
+  fetch("http://localhost:4000/api/getAll")
+    .then((response) => response.json())
+    .then((objectData) => {
+      const shuffledData = shuffleArray(objectData.allImages);
+      console.log(shuffledData);
+      loadDom(shuffledData);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
-// Function to generate the new gallery
-
-fetch("http://localhost:4000/api/getAllFromFantasy").then((response) => {
-  response.json().then((objectData) => {
-    response.json().then((objectData) => {
-      console.log(objectData);
+// gallery that only loads fantasy images on click of the fantasy button
+const fantasy = document.getElementById("fantasy");
+fantasy.addEventListener("click", () => {
+  clearAll();
+  fetch("http://localhost:4000/api/getAllFromFantasy")
+    .then((response) => response.json())
+    .then((objectData) => {
+      const shuffledData = shuffleArray(objectData.ImagesFromGenre);
+      console.log(shuffledData);
+      loadDom(shuffledData);
+    })
+    .catch((error) => {
+      console.error(error);
     });
-  });
 });
-const openHamburger = document.querySelector(".hamburger");
-const nav = document.querySelector("nav");
-const closeHamburger = document.querySelector(".closeHamburger");
 
-// Function to handle the hamburger click event
-function handleHamburgerClick() {
-  if (nav.style.display === "none" || nav.style.display === "") {
-    nav.style.display = "block";
-  } else {
-    nav.style.display = "none";
-  }
-}
-
-// Function to handle the close hamburger click event
-function handleCloseHamburgerClick() {
-  nav.style.display = "none";
-}
-
-// Add the click event listeners for small screens (max-width: 768px)
-function addEventListenersForSmallScreens() {
-  openHamburger.addEventListener("click", handleHamburgerClick);
-  closeHamburger.addEventListener("click", handleCloseHamburgerClick);
-}
-
-// Remove the click event listeners for small screens (max-width: 768px)
-function removeEventListenersForSmallScreens() {
-  openHamburger.removeEventListener("click", handleHamburgerClick);
-  closeHamburger.removeEventListener("click", handleCloseHamburgerClick);
-}
-
-// Check the screen size and add or remove the event listeners accordingly
-function checkScreenSize() {
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    // For small screens, add the event listeners
-    addEventListenersForSmallScreens();
-  } else {
-    // For larger screens, remove the event listeners
-    removeEventListenersForSmallScreens();
-    nav.style.display = ""; // Ensure that the nav is visible on larger screens
-  }
-}
-
-// Initial check on page load
-checkScreenSize();
-
-// Listen for screen size changes and update event listeners accordingly
-window.addEventListener("resize", checkScreenSize);
+const resumes = document.getElementById("resumes");
+resumes.addEventListener("click", () => {
+  clearAll();
+  fetch("http://localhost:4000/api/getAllFromResumes")
+    .then((response) => response.json())
+    .then((objectData) => {
+      const shuffledData = shuffleArray(objectData.ImagesFromGenre);
+      console.log(shuffledData);
+      loadDom(shuffledData);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
