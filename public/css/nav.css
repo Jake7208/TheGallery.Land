@@ -5,6 +5,7 @@ nav {
   align-items: center; /* Vertically center items */
   position: sticky;
   top: 0; /* Stick to the top of the viewport */
+
   width: 100%;
   background: #bad0b8;
 }
@@ -16,6 +17,7 @@ nav {
 .landingApplicationLogo {
   cursor: pointer;
   margin-top: 1%;
+  margin-left: 12%;
 }
 .textLogo {
   fill: #000000;
@@ -34,7 +36,7 @@ ul {
   align-items: center;
   flex-direction: row;
   gap: 32px;
-  margin-right: 3%;
+  margin-right: 10%;
 }
 ul svg {
   display: flex;

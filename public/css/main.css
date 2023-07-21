@@ -12,21 +12,166 @@ html {
   min-height: 100%;
   background: #bad0b8;
 }
-.HeroText {
-  width: 628px;
-  height: 216px;
+
+section.container {
   display: flex;
-  flex-direction: row;
 }
+
+.left {
+  width: 50%;
+  height: 80vh;
+  flex-basis: 50%;
+}
+
+.right {
+  width: 50%;
+  height: 80vh;
+  flex-basis: 50%;
+  display: flex;
+}
+
+.hero-image {
+  position: absolute;
+  top: 14%;
+  z-index: 1;
+  filter: brightness(50%);
+  left: 20%;
+}
+
+.hero-image2 {
+  position: absolute;
+  filter: brightness(50%);
+  left: 8%;
+  bottom: 15%;
+}
+
+.HeroText {
+  position: absolute;
+  right: 8%;
+  top: 30%;
+  height: 216px;
+}
+
 .HeroText h1 {
   text-align: right;
   font-family: "Inter";
   color: #171717;
-  font-size: 42px;
+  font-size: clamp(28px, calc(100vw / 20), 56px);
+  /* font-size: calc(100vw / 40); */
   font-style: normal;
-  font-weight: bolder;
+  font-weight: 900;
   line-height: 150%; /* 72px */
 }
+.HeroText a {
+  float: right;
+  margin-top: 6%;
+  cursor: pointer;
+  display: flex;
+  width: 26%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: center;
+  color: #0c0c0c;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  background: #006d53;
+  border-radius: 8px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.HeroText a:hover {
+  transition: 0.2s all;
+  color: #c2c2c2;
+  background: #004636;
+}
+.border {
+  display: grid;
+  place-content: center;
+  margin: 5px;
+  width: 80%;
+  height: 1px;
+  background: #1e1e1e;
+  margin: auto;
+}
+
 .text-gradient {
   color: #006d53;
+}
+
+@media screen and (max-width: 1360px) and (min-width: 550px) {
+  .landingApplicationLogo {
+    cursor: pointer;
+    margin-top: 1%;
+    margin-left: 0%;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero-image2 {
+    display: none;
+  }
+  .border {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .left {
+    display: none;
+  }
+  .right {
+    height: 60vh;
+  }
+  .HeroText h1 {
+    align-items: center;
+    text-align: center;
+  }
+  .HeroText a {
+    width: 50%;
+  }
+  .border {
+    margin-top: 15px;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero-image2 {
+    align-items: center;
+    place-content: center;
+    position: relative;
+    width: 90%;
+    left: 5%;
+  }
+}
+@media screen and (max-width: 290px) {
+  .left {
+    display: none;
+  }
+  .right {
+    height: 60vh;
+  }
+  .HeroText h1 {
+    font-size: 24px;
+    align-items: center;
+    text-align: center;
+  }
+  .HeroText a {
+    width: 50%;
+  }
+  .border {
+    margin-top: 15px;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero-image2 {
+    align-items: center;
+    place-content: center;
+    position: relative;
+    width: 90%;
+    left: 5%;
+  }
 }
