@@ -12,7 +12,7 @@ const fs = require("fs");
 const app = express();
 app.use(
   cors({
-    origin: "https://snazzy-sunshine-39a63e.netlify.app",
+    origin: "https://the-gallery-land.vercel.app",
   })
 );
 
