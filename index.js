@@ -8,12 +8,11 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const fs = require("fs");
-const axios = require("axios");
 
 const app = express();
 app.use(
   cors({
-    origin: "https://main--snazzy-sunshine-39a63e.netlify.app",
+    origin: "https://snazzy-sunshine-39a63e.netlify.app",
   })
 );
 
