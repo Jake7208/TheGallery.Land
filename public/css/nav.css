@@ -1,5 +1,5 @@
 nav {
-  z-index: 100;
+  z-index: 10000;
   display: flex;
   justify-content: space-between; /* Distribute items evenly with space between */
   align-items: center; /* Vertically center items */
@@ -77,6 +77,24 @@ a svg:hover {
 nav a:hover {
   transition: all 0.2s;
   color: #006d53;
+}
+
+.copyright {
+  background: #b4c3ab;
+  height: 60px;
+  color: #324327;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bolder {
+  font-weight: 700;
 }
 
 /* Media query for screens with max-width: 1024px and min-width: 768px */

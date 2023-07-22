@@ -45,3 +45,20 @@ checkScreenSize();
 
 // Listen for screen size changes and update event listeners accordingly
 window.addEventListener("resize", checkScreenSize);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("hidden");
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // Stop observing once the class is changed
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll(".hidden");
+  hiddenElements.forEach((element) => {
+    observer.observe(element);
+  });
+});

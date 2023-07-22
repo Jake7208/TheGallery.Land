@@ -1,5 +1,4 @@
 gsap.registerPlugin(ScrollTrigger);
-
 const tl = gsap
   .timeline({
     scrollTrigger: {
@@ -13,6 +12,8 @@ const tl = gsap
     y: -300,
     scrub: true,
   });
+
+// hidden load in
 
 // every 1 and 25 images will have a v-stretch class that will make them span 2 rows and cols
 function addVStretchClass(listItems) {
