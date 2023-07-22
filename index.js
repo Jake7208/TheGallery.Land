@@ -11,7 +11,11 @@ const fs = require("fs");
 const axios = require("axios");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://main--snazzy-sunshine-39a63e.netlify.app",
+  })
+);
 
 // getting the database information from .env
 const DB = process.env.DATABASE;

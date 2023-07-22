@@ -96,7 +96,7 @@ function loadDom(array) {
 // when the window is loaded it will get all the images from the /api/getAll endpoint
 window.onload = () => {
   // Fetch all images and their data from the /api/getAll endpoint
-  fetch("http://localhost:4000/api/getAll")
+  fetch("https://main--snazzy-sunshine-39a63e.netlify.app/api/getAll")
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.allImages);
@@ -112,7 +112,9 @@ window.onload = () => {
 const fantasy = document.getElementById("fantasy");
 fantasy.addEventListener("click", () => {
   clearAll();
-  fetch("http://localhost:4000/api/getAllFromFantasy")
+  fetch(
+    "https://main--snazzy-sunshine-39a63e.netlify.app/api/getAllFromFantasy"
+  )
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.ImagesFromGenre);
@@ -127,7 +129,9 @@ fantasy.addEventListener("click", () => {
 const resumes = document.getElementById("resumes");
 resumes.addEventListener("click", () => {
   clearAll();
-  fetch("http://localhost:4000/api/getAllFromResumes")
+  fetch(
+    "https://main--snazzy-sunshine-39a63e.netlify.app/api/getAllFromResumes"
+  )
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.ImagesFromGenre);
