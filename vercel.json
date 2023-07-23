@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/images",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/getAll",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/getPath",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/getAllFromFantasy",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/getAllFromResumes",
+      "dest": "index.js"
+    }
+  ]
+}
