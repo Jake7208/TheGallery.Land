@@ -1,11 +1,11 @@
 // Environment Variables
-const dotenv = require("dotenv");
-require("dotenv").config();
 
 // connecting with express axios and linking the port
 const PORT = process.env.PORT || 4000;
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const fs = require("fs");
 
