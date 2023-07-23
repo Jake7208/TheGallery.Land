@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 require("dotenv").config();
 
 // connecting with express axios and linking the port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");

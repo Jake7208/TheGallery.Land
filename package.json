@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "The api used to grab images from the database and send them to the frontend",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "nodemon index.js",
-    "build": "npm i",
-    "vercel-build": "echo hello world"
+    "build": "npm i"
   },
   "author": "Jacob A Price",
   "license": "ISC",

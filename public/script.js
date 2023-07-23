@@ -96,7 +96,7 @@ function loadDom(array) {
 // when the window is loaded it will get all the images from the /api/getAll endpoint
 window.onload = () => {
   // Fetch all images and their data from the /api/getAll endpoint
-  fetch("/api/getAll")
+  fetch("http://localhost:4000/api/getAll")
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.allImages);
@@ -112,7 +112,7 @@ window.onload = () => {
 const fantasy = document.getElementById("fantasy");
 fantasy.addEventListener("click", () => {
   clearAll();
-  fetch("/api/getAllFromFantasy")
+  fetch("http://localhost:4000/api/getAllFromFantasy")
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.ImagesFromGenre);
@@ -123,24 +123,11 @@ fantasy.addEventListener("click", () => {
       console.error(error);
     });
 });
-fetch("/api/getAll")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((objectData) => {
-    // Process the JSON data
-  })
-  .catch((error) => {
-    console.error("Fetch error:", error);
-  });
 
 const resumes = document.getElementById("resumes");
 resumes.addEventListener("click", () => {
   clearAll();
-  fetch("/api/getAllFromResumes")
+  fetch("http://localhost:4000/api/getAllFromResumes")
     .then((response) => response.json())
     .then((objectData) => {
       const shuffledData = shuffleArray(objectData.ImagesFromGenre);
