@@ -10,11 +10,7 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://the-gallery-land.vercel.app",
-  })
-);
+app.use(cors());
 
 // getting the database information from .env
 const DB = process.env.DATABASE;
