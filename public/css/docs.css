@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  padding: none;
+  margin: none;
+}
+
+html,
+body {
+  background: #bad0b8;
+  scroll-behavior: smooth;
+  overflow-x: none;
+}
+
+.sideNav {
+  z-index: 1000;
+  position: sticky;
+  top: 15%;
+  left: 4%;
+  width: fit-content;
+  font-family: "Inter", sans-serif;
+}
+
+.activeSide {
+  background: #7f9978;
+  height: 51px;
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 12px;
+  align-items: center;
+  cursor: default !important;
+  color: #fff !important;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.SectionTitle {
+  color: #000;
+  /* font-family: Inter; */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 300%; /* 30px */
+}
+
+.sideLink {
+  line-height: 230%;
+  text-decoration: none;
+  cursor: pointer;
+  padding-left: 5%;
+  color: #505050;
+}
+
+.mainContent {
+  width: 80%;
+  min-width: 400px; /* Set a minimum width for the content */
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  overflow-x: hidden; /* Use hidden instead of none to hide horizontal overflow */
+}
+
+.main {
+  font-family: "Inter", sans-serif;
+  justify-content: center;
+  max-width: 700px; /* Set a fixed max-width instead of a percentage */
+  text-align: left;
+}
+
+.title {
+  color: #053d00;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 54px */
+}
+
+.subTitle {
+  color: #053d00;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 54px */
+}
+
+#Introduction {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+img {
+  display: grid;
+  place-content: center;
+  align-items: center;
+  line-height: 150%;
+  border-radius: 12px;
+}

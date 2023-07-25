@@ -34,25 +34,25 @@ app.use(express.static("./images"));
 const genre = fs.readdirSync("./images");
 const name = fs.readdirSync("./images/" + genre[0]);
 
-// fs.readdirSync("./images").forEach((genre) => {
-//   fs.readdirSync(`./images/${genre}`).forEach((name) => {
-//     const sendImage = new imagesRouter({
-//       name: `${name}`,
-//       genre: `${genre}`,
-//       path: `${genre}/${name}`,
-//       type: "png",
-//       licence: "Royalty Free",
-//     });
-//     sendImage
-//       .save()
-//       .then((doc) => {
-//         console.log(doc);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   });
-// });
+fs.readdirSync("./images").forEach((genre) => {
+  fs.readdirSync(`./images/${genre}`).forEach((name) => {
+    const sendImage = new imagesRouter({
+      name: `${name}`,
+      genre: `${genre}`,
+      path: `${genre}/${name}`,
+      type: "png",
+      licence: "Royalty Free",
+    });
+    sendImage
+      .save()
+      .then((doc) => {
+        console.log(doc);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+});
 
 app.get("/api/getAll", async (req, res, next) => {
   try {

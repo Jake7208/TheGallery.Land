@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
-    <link rel="stylesheet" href="./css/gallery.css" />
-    <link rel="stylesheet" href="./css/modal.css" />
+    <title>TheGallery.Land Docs</title>
+    <!-- <link rel="stylesheet" href="./css/main.css" /> -->
+
     <link rel="stylesheet" href="./css/nav.css" />
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./css/docs.css" />
   </head>
   <body>
+    <!-- Overall Nav bar! -->
     <div class="hamburger">
       <svg
         width="40"
@@ -76,16 +75,16 @@
             d="M33.3333 18.3333C34.2174 18.3333 35.0652 18.6845 35.6904 19.3096C36.3155 19.9348 36.6667 20.7826 36.6667 21.6667C36.6667 22.5507 36.3155 23.3986 35.6904 24.0237C35.0652 24.6488 34.2174 25 33.3333 25H30.3333L23.6667 18.3333H33.3333ZM34.0333 32.95V32.9333L29.4333 28.3333H29.4167L26.0833 25H26.1L19.4333 18.3333L16.1 15L3.98333 2.88333L1.85 5L6.86666 10C5 12.5 5 15 5 15H11.85L15.1833 18.3333H6.66666C4.83333 18.3333 3.33333 19.8333 3.33333 21.6667C3.33333 23.5 4.83333 25 6.66666 25H21.85L25.1833 28.3333H5V30C5 32.7667 7.23333 35 10 35H30C30.55 35 31.0833 34.8833 31.5667 34.7167L34.7333 37.8833L36.85 35.7667L34.0333 32.95ZM35 15C35 15 35 5 20 5C16.4667 5 13.8 5.56666 11.75 6.41666L20.3333 15H35Z"
           />
         </svg>
-      </button>
+      </a>
       <ul>
         <li>
           <a href="index.html">Home</a>
         </li>
         <li>
-          <a href="#" class="active">Gallery</a>
+          <a href="app.html">Gallery</a>
         </li>
         <li>
-          <a href="#">Docs</a>
+          <a href="#" class="active">Docs</a>
         </li>
         <li>
           <a href="#">Sponsor</a>
@@ -122,28 +121,79 @@
         </li>
       </ul>
     </nav>
+    <!-- TODO nav bar for website side Section in docs -->
 
-    <div class="welcome hidden">
-      <h1>The Gallery Land</h1>
-      <div class="genres">
-        <a id="fantasy"><h2>Fantasy</h2></a>
-        <a id="resumes"><h2>Resumes</h2></a>
-        <a id="technology"><h2>Technology</h2></a>
+    <div class="sideNav">
+      <li>
+        <a class="sideLink activeSide" href="#Introduction">Introduction</a>
+      </li>
+      <li>
+        <span class="SectionTitle">Create Your Own Gallery</span>
+      </li>
+      <li>
+        <a class="sideLink" href="#SettingUp">Setting Up</a>
+      </li>
+      <li>
+        <a class="sideLink" href="#DBSetup">Database Setup</a>
+      </li>
+      <li>
+        <a class="sideLink" href="#WhatIsRest">What is Rest?</a>
+      </li>
+      <li>
+        <a class="sideLink" href="#CreateRest">Create Rest Request</a>
+      </li>
+      <li>
+        <a class="sideLink" href="#DisplayAnImage">Displaying an Image</a>
+      </li>
+      <li>
+        <a class="sideLink" href="#Complete">Complete!</a>
+      </li>
+      <li>
+        <span class="SectionTitle">TheGallery.Land</span>
+      </li>
+      <li>
+        <a class="sideLink" href="#Mission">Mission</a>
+      </li>
+    </div>
+    <div class="mainContent">
+      <div class="main">
+        <section id="Introduction">
+          <h1 class="title">Introduction</h1>
+          <p>
+            <span class="highlight">TheGallery.land</span>, your ultimate
+            destination for free and royalty-free images tailored for
+            developers. Unleash your creativity and enhance your projects with
+            our diverse collection of high-quality visuals, all readily
+            available to inspire and elevate your work.
+          </p>
+          <h3 class="subTitle">
+            Lets embark on your creative journey with theGallery.land
+          </h3>
+          <p>It all starts with the click of a button</p>
+          <img
+            src="landingImages/giffycanvas.gif"
+            alt="content gif"
+            background="black"
+          />
+          <p>
+            Now That you’ve entered the gallery it’s as simple as finding the
+            image you like,
+          </p>
+          <img src="landingImages/imageDownload.png" alt="" />
+          <p>
+            Congratulations you’ve successfully downloaded your first
+            TheGallery.Land image.
+          </p>
+        </section>
+        <section id="SettingUp"></section>
+        <section id="DBSetup"></section>
+        <section id="WhatIsRest"></section>
+        <section id="CreateRest"></section>
+        <section id="DisplayAnImage"></section>
+        <section id="Complete"></section>
+        <section id="Mission"></section>
       </div>
     </div>
-    <div class="modal">
-      <div class="modal-content">
-        <p class="modal-title"></p>
-        <p class="modal-genre"></p>
-        <p class="modal-type"></p>
-        <img class="modal-image" src="" alt="Modal Image" />
-        <a href="#" class="download-link" download>Download PNG</a>
-        <span class="close-modal">&times;</span>
-      </div>
-    </div>
-
-    <div class="gallery"></div>
   </body>
   <script src="burger.js"></script>
-  <script src="script.js"></script>
 </html>

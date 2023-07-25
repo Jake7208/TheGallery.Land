@@ -167,6 +167,7 @@ nav a:hover {
     transition: transform 0.1s ease-in-out;
     animation: moveUpDown 2s infinite alternate;
   }
+
   .hamburger svg:hover {
     fill: #006d53;
     transform: translateY(1px);
