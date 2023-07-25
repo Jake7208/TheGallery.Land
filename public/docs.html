@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" href="./css/nav.css" />
     <link rel="stylesheet" href="./css/docs.css" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css"
+    />
   </head>
   <body>
     <!-- Overall Nav bar! -->
@@ -212,25 +216,336 @@
               keyboard shortcut ( <span class="highlight">Ctrl + `</span> ) or
               by navigating to the "<span class="highlight">View</span>" menu at
               the top of Visual Studio Code and clicking on the "<span
-                class="hightlight"
+                class="highlight"
                 >Terminal</span
               >" button located near the bottom of the menu.
             </p>
             <img
               class="terminalImage"
-              src="./landingImages/terminalEx.png"
+              src="./landingImages/terminalImage.png"
               alt="terminal example"
             />
+            <p>
+              Your VS code should look a little something like this. To check if
+              your node is working use the command:
+            </p>
+            <div class="npmExample">node -v</div>
+            <p>
+              <span class="highlight2">Step Two:</span>Step Two: Great job on
+              setting up the terminal! Now, let's dive into the exciting part –
+              installing the necessary dependencies. <br /><br />
+              To do this, simply enter the following command in the terminal to
+              get all the dependencies we need:
+            </p>
+            <div class="npmExample">
+              npm i cors dotenv express nodemon mongodb mongoose
+            </div>
+            <div class="note">
+              “note: mongodb and mongoose are dependent on what database you’re
+              using”
+            </div>
+            <p>
+              You should now have the following files and folders:<br /><br />
+              <span class="list"
+                >1. package-lock.json<br />
+                2. package.json<br />
+                3. node_modules</span
+              ><br /><br />
+              To ensure that the dependencies were added successfully, let's
+              examine the <span class="highlight">package.json</span> file. Open
+              it using Visual Studio Code or any text editor, and look for the
+              following section:
+            </p>
+            <img src="landingImages/jsonImage.png" alt="json" />
+            <span class="note"
+              >“note: mongo is my preferred DB this is dependent on your own
+              personal preference”</span
+            ><br />
+            <p>
+              <span class="highlight2">Step Three: </span>In the final step of
+              the setup process, we'll organize the required files and folders.
+              Start by creating the following elements within Visual Studio
+              Code: <br /><br />
+              <span class="list"
+                >1. Create a folder named "<span class="highlight">images</span
+                >" <br />
+                2. Create a file named "<span class="highlight"
+                  >index.js, and .env</span
+                >" <br />
+                3. Establish a "<span class="highlight">public</span>" folder,
+                which will be configured to fetch data from the backend in later
+                steps.</span
+              ><br /><br />
+              This well-structured arrangement will lay the foundation for your
+              project's functionality and pave the way for a smooth development
+              journey.
+            </p>
+            <img src="landingImages/folderPath.png" alt="folderPath" />
+            <p>
+              If file path matches then you are now all set to move forward with
+              your project.
+            </p>
           </section>
-          <section id="DBSetup"></section>
-          <section id="WhatIsRest"></section>
-          <section id="CreateRest"></section>
-          <section id="DisplayAnImage"></section>
+          <section id="DBSetup">
+            <h2 class="subTitle">Database Setup</h2>
+            <p>
+              I won't delve deeply into database setup in this documentation.
+              However, if you are determined to complete this project without
+              prior knowledge of database setup, you can
+              <a
+                class="highlight"
+                href="https://www.mongodb.com/docs/manual/tutorial/getting-started/"
+                >click here</a
+              >
+              to learn how to set up MongoDB on your computer. This essential
+              step will enable seamless integration with the backend, empowering
+              you to accomplish your project successfully.
+            </p>
+            <p>
+              Once your database is set up, simply add the "<span
+                class="highlight"
+                >.env</span
+              >" file, which should work seamlessly if you have "<span
+                class="highlight"
+                >dotenv</span
+              >" listed in your
+              <span class="highlight">package.json</span> dependencies. This
+              file will handle environment variables and secure sensitive data,
+              ensuring a smooth and secure development process.
+            </p>
+            <img
+              class="terminalImage"
+              src="./landingImages/settingUpenv.png"
+              alt="setting Up Env"
+            />
+            <p>
+              Your .env will look something like this with your own DATABASE
+              key. Now, let's proceed by incorporating this configuration into
+              the "<span class="highlight">index.js</span>" file, enabling your
+              API to establish a connection with the database using mongoose and
+              mongoDB:
+            </p>
+            <pre style="tab-size: 4">
+              <code class="language-javascript">
+const PORT = pocess.env.PORT || 4000;
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const mongoose = require("mongoose");
+const fs = require("fs");
+
+const app = express();
+  app.use(cors());
+
+// getting the database information from .env
+const DB = process.env.DATABASE;
+
+// connecting to the database
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("DB connection successful!"));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+              </code>
+            </pre>
+            <p>
+              We need to create an
+              <span class="highlight">api</span> folder for our schema call
+              we’ll add a file called
+              <span class="highlight">image.js</span> with the following code:
+            </p>
+            <pre style="tab-size: 4">
+            <code class="language-javascript">
+const mongoose = require("mongoose");
+
+const imageSchema = new mongoose.Schema({
+name: {
+type: String,
+required: true,
+unique: true,
+},
+genre: String,
+path: String,
+image: String,
+type: String,
+licence: String,
+});
+
+const Image = mongoose.model("images", imageSchema);
+module.exports = Image;
+            </code>
+          </pre>
+            <p>Now we’re ready to move on to the final steps!</p>
+          </section>
+          <section id="WhatIsRest">
+            <h2 class="subTitle">What is Rest?</h2>
+            <p>
+              <span class="highlight">REST</span> (Representational State
+              Transfer) is a set of guidelines and principles used to design web
+              services that allow different software applications to communicate
+              and exchange data with each other over the internet. It provides a
+              simple and standardized way for computers to interact, making it
+              easier to access and manipulate data across various platforms and
+              devices. RESTful APIs (Application Programming Interfaces) follow
+              these principles, enabling seamless integration and interaction
+              between web applications, ultimately contributing to the overall
+              functionality and interconnectedness of the internet.
+            </p>
+            <p>If this doesn’t make sense to you don’t worry!</p>
+            <p>
+              If you’re interested in learning more you can visit
+              <a
+                href="https://www.redhat.com/en/topics/api/what-is-a-rest-api"
+                class="highlight"
+                >here</a
+              >
+            </p>
+          </section>
+          <section id="CreateRest">
+            <h2 class="subTitle">Creating Rest Request</h2>
+            <p>
+              In this final phase, we will create our initial REST request by
+              setting up an Express router and obtaining the schema export for
+              our index.js.
+            </p>
+            <pre>
+              <code>
+
+//    Place the router right below the DB connection:  // 
+
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("DB connection successful!"));
+
+// connections from api 
+// This is your Router!
+//     Router        //
+const imagesRouter = require("./api/images");
+
+app.use("/api/images", imagesRouter);
+app.use(express.static("./images"));
+              </code>
+            </pre>
+            <p>
+              Now let’s ensure our database connection, we’ll check by entering
+              the terminal and running:
+            </p>
+            <div class="npmExample">npm run start</div>
+            <br />
+            <img
+              src="./landingImages/terminalReady.png"
+              class="terminalImage"
+              alt="Terminal Ready"
+            />
+            <p>
+              If your terminal looks like this then you have successfully
+              connected the database.
+            </p>
+            <p>
+              Now that you have successfully connected your router and ensured
+              that your database is running, you are ready to make your first
+              REST request. In this section, we will guide you through the
+              process of setting up a basic req, res function to initiate a REST
+              request.
+            </p>
+            <p>
+              Let’s get going we’re going to first do a get all using the
+              imagesRouter to fetch these fields from the database
+            </p>
+            <pre>
+              <code class="language-javascript">
+app.get("/api/getAll", async (req, res, next) => {
+  try {
+      const allImages = await imagesRouter.find(req.body);
+      res.json({ allImages: allImages });
+  } catch (err) {
+      console.log(err);
+  }
+});
+              </code>
+            </pre>
+            <p>
+              Essentially what this will do is Send an HTTP GET request to
+              http://your-server-address/api/getAll.
+            </p>
+            <p>
+              Upon successful retrieval of images from the database, the server
+              will respond with a JSON object containing the array of image
+              objects under the "allImages" key.
+            </p>
+            <p></p>
+            To verify if the API endpoint is functioning correctly, you have two
+            simple testing options: using Postman or your web browser.<br /><br />
+            Method 1: Using Postman<br /><br />
+            1. Open Postman (you can download it from
+            https://www.postman.com/downloads/).<br />
+            2. Set the request type to "GET."<br />
+            3. Enter the URL http://localhost:4000/api/getAll.<br />
+            4. Click the "Send" button to initiate the GET request.<br />
+            5. Postman will display the server's response containing the JSON
+            object with the array of image data under the "allImages" key.<br /><br>
+            Method 2: Using Your Web Browser<br /><br />
+            1. Ensure your server is up and running.<br />
+            2. Open your preferred web browser.<br />
+            3. In the address bar, type http://localhost:4000/api/getAll and
+            press "Enter."<br />
+            4. The browser will send a GET request to the specified endpoint.<br />
+            5. The browser will display the JSON response from the server
+            containing the image data.<br /><br />
+            Both methods should yield the same result, and you will receive a
+            JSON object with the array of image data if the endpoint is
+            correctly configured and your database connection is established.<br> <br>
+            <span class="highlight">Note:</span> When using the browser to test API endpoints, the browser will
+            typically format the JSON response in a user-friendly way, making it
+            easier to read. However, for advanced testing and development
+            purposes, Postman provides more extensive features and capabilities.
+            Choose the method that best suits your testing needs.
+          </p>
+          <p>If you were successful you should have json data that looks similar to this</p>
+          <img src="landingImages/jsonSuccess.png" alt="successful json" class="terminalReady">
+          </section>
+          <section id="DisplayAnImage">
+            <h2 class="subTitle">Displaying an Image</h2>
+            <p>Congratulations on reaching the last step of the process! Now, we'll guide you on how to display your images on the frontend of your application.</p>
+            <p><span class="highlight">Step 1:</span> Prepare Your Public Folder
+              Begin by navigating to your project's "public" folder. Inside this folder, create two new files:<br> <br>
+              1. index.html: This file will serve as the main HTML page for your application.<br>
+              2. script.js: This file will contain the JavaScript code responsible for fetching and displaying images on the frontend.<br><br>
+              <span class="highlight">Step 2:</span> Creating the index.html File
+              Open the index.html file using your favorite code editor. Use the ! shortcut with the emmet abbreviation to quickly generate the basic HTML structure. Next, add the necessary HTML elements to build the foundation of your app, including a placeholder div element to display the images dynamically.<br><br>
+              <span class="highlight">Step 3:</span> script.js - Fetching and Displaying Images.</p>
+            <div class="highlight">Index.js</div>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Demo For images&lt;/title&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="gallery"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+          </section>
           <section id="Complete"></section>
           <section id="Mission"></section>
         </div>
       </div>
     </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
+
   <script src="burger.js"></script>
 </html>

@@ -143,9 +143,9 @@ nav a:hover {
     color: #c1c1c1;
   }
   ul {
+    margin-top: 5%;
     z-index: 10000;
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: center;
   }

@@ -14,16 +14,17 @@ body {
 
 /* SideNav */
 .sideNav {
+  padding-left: 10%;
   z-index: 1000;
-  top: 15%;
-
+  height: 50%;
+  margin-top: 5%;
   width: fit-content;
   font-family: "Inter", sans-serif;
 }
 
 .activeSide {
   background: #7f9978;
-  height: 42px;
+  height: 50%;
   display: flex;
   flex-shrink: 0;
   border-radius: 12px;
@@ -55,21 +56,22 @@ body {
 }
 
 .mainContent {
-  width: 75%;
+  width: 80%;
   min-width: 200px; /* Set a minimum width for the content */
   height: 80%;
   display: flex;
   justify-content: center;
   position: absolute;
   top: 15%;
-  right: 5%;
+  right: 3%;
   overflow-x: hidden; /* Use hidden instead of none to hide horizontal overflow */
+  scroll-behavior: smooth;
 }
 
 .main {
   font-family: "Inter", sans-serif;
   justify-content: center;
-  max-width: 700px; /* Set a fixed max-width instead of a percentage */
+  max-width: 60%; /* Set a fixed max-width instead of a percentage */
   text-align: left;
 }
 
@@ -104,33 +106,57 @@ img {
   line-height: 150%;
   border-radius: 12px;
 }
+
 .highlight {
   color: #006d53;
+  font-weight: bolder;
 }
-
+.highlight2 {
+  color: #053d00;
+  font-weight: bolder;
+}
 .terminalImage {
-  height: 300px;
-  width: 400px;
+  width: 90%;
+  height: 100%;
 }
-
+.npmExample {
+  background: #d3dcbf;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border-radius: 12px;
+}
+.note {
+  line-height: 150%;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+}
+.list {
+  color: #282828;
+  line-height: 150%;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+}
+code {
+  border-radius: 12px;
+}
 @media screen and (max-width: 768px) {
   .sideNav {
-    position: absolute;
-    top: 10%; /* Move the SideNav closer to the top */
-    left: 2%; /* Move the SideNav closer to the left */
-    min-width: 80%;
+    display: none;
   }
 
   .mainContent {
-    top: 70%; /* Move the Main Content further down */
-    right: 2%; /* Move the Main Content closer to the right */
-    width: 96%; /* Occupy almost full width on small screens */
-    min-width: 90%; /* Adjust the min-width to occupy most of the screen width */
-    max-width: 90%;
+    position: relative;
+    top: 10%; /* Move the Main Content further down */
+    left: 10%; /* Move the Main Content closer to the right */
+    width: 100%; /* Occupy almost full width on small screens */
   }
 
   .main {
-    max-width: 90%; /* Adjust the max-width to occupy most of the screen width */
+    max-width: 100%; /* Adjust the max-width to occupy most of the screen width */
   }
   .title {
     font-size: 24px; /* Decrease font size for the title */
@@ -143,12 +169,18 @@ img {
 
 @media screen and (max-width: 1024px) {
   .mainContent {
-    right: 10%; /* Move the Main Content closer to the right */
+    right: 2%; /* Move the Main Content closer to the right */
     width: 80%; /* Occupy most of the screen width on small screens */
     min-width: 80%; /* Adjust the min-width to occupy most of the screen width */
     max-width: 90%;
   }
   .main {
     max-width: 80%; /* Adjust the max-width to occupy most of the screen width */
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .sideNav {
+    padding: 1%;
   }
 }
