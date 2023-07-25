@@ -12,18 +12,18 @@ body {
   overflow-x: none;
 }
 
+/* SideNav */
 .sideNav {
   z-index: 1000;
-  position: sticky;
   top: 15%;
-  left: 4%;
+
   width: fit-content;
   font-family: "Inter", sans-serif;
 }
 
 .activeSide {
   background: #7f9978;
-  height: 51px;
+  height: 42px;
   display: flex;
   flex-shrink: 0;
   border-radius: 12px;
@@ -55,8 +55,8 @@ body {
 }
 
 .mainContent {
-  width: 80%;
-  min-width: 400px; /* Set a minimum width for the content */
+  width: 75%;
+  min-width: 200px; /* Set a minimum width for the content */
   height: 80%;
   display: flex;
   justify-content: center;
@@ -83,12 +83,14 @@ body {
 
 .subTitle {
   color: #053d00;
-  font-size: 22px;
+  font-size: 26px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 150%; /* 54px */
 }
-
+p {
+  line-height: 150%;
+}
 #Introduction {
   display: flex;
   flex-direction: column;
@@ -101,4 +103,52 @@ img {
   align-items: center;
   line-height: 150%;
   border-radius: 12px;
+}
+.highlight {
+  color: #006d53;
+}
+
+.terminalImage {
+  height: 300px;
+  width: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  .sideNav {
+    position: absolute;
+    top: 10%; /* Move the SideNav closer to the top */
+    left: 2%; /* Move the SideNav closer to the left */
+    min-width: 80%;
+  }
+
+  .mainContent {
+    top: 70%; /* Move the Main Content further down */
+    right: 2%; /* Move the Main Content closer to the right */
+    width: 96%; /* Occupy almost full width on small screens */
+    min-width: 90%; /* Adjust the min-width to occupy most of the screen width */
+    max-width: 90%;
+  }
+
+  .main {
+    max-width: 90%; /* Adjust the max-width to occupy most of the screen width */
+  }
+  .title {
+    font-size: 24px; /* Decrease font size for the title */
+  }
+
+  .subTitle {
+    font-size: 18px; /* Decrease font size for the subtitle */
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mainContent {
+    right: 10%; /* Move the Main Content closer to the right */
+    width: 80%; /* Occupy most of the screen width on small screens */
+    min-width: 80%; /* Adjust the min-width to occupy most of the screen width */
+    max-width: 90%;
+  }
+  .main {
+    max-width: 80%; /* Adjust the max-width to occupy most of the screen width */
+  }
 }
