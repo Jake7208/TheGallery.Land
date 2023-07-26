@@ -28,10 +28,12 @@ For any inquiries or suggestions, please feel free to reach out to us:
   
   It all starts with a click
 
-  [Uploading giffycanvas.gif…]()
+  ![giffycanvas](https://github.com/Jake7208/TheGallery.Land/assets/92753785/e6859240-2c86-48fd-8bb2-6bb56d59374d)
 
   Now That you’ve entered the gallery it’s as simple as finding the image you like,
 
   ![imageDownload](https://github.com/Jake7208/TheGallery.Land/assets/92753785/d0f0affb-e991-412d-a9d8-2dd791751012)
+
+  Thats how easy it is to download an image.
 
 We hope TheGallery.Land brings beauty and creativity to your projects. Happy exploring and creating!
