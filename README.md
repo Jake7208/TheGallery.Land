@@ -28,11 +28,13 @@ For any inquiries or suggestions, please feel free to reach out to us:
   
   It all starts with a click
 
-  ![giffycanvas](https://github.com/Jake7208/TheGallery.Land/assets/92753785/e6859240-2c86-48fd-8bb2-6bb56d59374d)
+  ![giffycanvas](https://github.com/Jake7208/TheGallery.Land/assets/92753785/12761719-9560-46d1-9e62-5ed61be3f66c)
+
 
   Now That you’ve entered the gallery it’s as simple as finding the image you like,
 
-  ![imageDownload](https://github.com/Jake7208/TheGallery.Land/assets/92753785/d0f0affb-e991-412d-a9d8-2dd791751012)
+  ![imageDownload](https://github.com/Jake7208/TheGallery.Land/assets/92753785/5d74d928-a12f-446e-80cf-f92dc8b6205b)
+
 
   Thats how easy it is to download an image.
 
