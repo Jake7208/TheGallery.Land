@@ -55,6 +55,16 @@ body {
   color: #505050;
 }
 
+.sideLink:hover {
+  background: #50505039;
+  height: 50%;
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 12px;
+  align-items: center;
+  font-family: Inter;
+}
+
 .mainContent {
   width: 80%;
   min-width: 200px; /* Set a minimum width for the content */
@@ -142,6 +152,87 @@ img {
 }
 code {
   border-radius: 12px;
+}
+#Complete a {
+  text-decoration: none;
+}
+.github {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #505050;
+  background-color: #282828;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.github::before {
+  content: ""; /* Add content property for pseudo-elements */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.897) 39.1%,
+    rgba(112, 112, 112, 0.14) 100%
+  );
+  border-radius: 8px;
+  z-index: 0; /* Set z-index to 0 to position the pseudo-element between the container and its content */
+}
+
+.github svg {
+  display: flex;
+  z-index: 100;
+  height: 200px;
+  width: 200px;
+}
+
+.GithubLink h1 {
+  color: #006d53;
+  z-index: 100;
+}
+
+.tag {
+  display: flex;
+  margin-left: 2%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 2px;
+  background: #a29f9f;
+  width: 96.26px;
+  height: 27px;
+  flex-shrink: 0;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.lower {
+  position: relative;
+  z-index: 100;
+  color: #fff;
+  max-width: 80%; /* Set a maximum width for the paragraph */
+  top: 0;
+  margin-top: 0 !important;
+}
+.github:hover {
+  cursor: pointer;
+  background: #ffffff3f;
+  transition: 1s all;
 }
 @media screen and (max-width: 768px) {
   .sideNav {
