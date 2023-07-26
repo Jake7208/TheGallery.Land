@@ -1,9 +1,9 @@
 # TheGallery.Land - 
-#### Royalty-Free Images for Developers and Users
+### Royalty-Free Images for Developers and Users
 
 Welcome to TheGallery.Land! This repository is a treasure trove of high-quality, royalty-free images curated to assist developers and users in their projects, be it for commercial or personal use. Our aim is to provide a diverse collection of stunning visuals to enhance your creations without any worries about copyright restrictions.
 
-##How to Use TheGallery.Land
+## How to Use TheGallery.Land
 
 Visit our website TheGallery.Land to browse through our vast collection of images. You can use the search functionality to find images relevant to your specific needs or explore different categories to discover new inspirations.
 
