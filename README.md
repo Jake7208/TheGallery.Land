@@ -1,5 +1,5 @@
-#TheGallery.Land - 
-####Royalty-Free Images for Developers and Users
+# TheGallery.Land - 
+#### Royalty-Free Images for Developers and Users
 
 Welcome to TheGallery.Land! This repository is a treasure trove of high-quality, royalty-free images curated to assist developers and users in their projects, be it for commercial or personal use. Our aim is to provide a diverse collection of stunning visuals to enhance your creations without any worries about copyright restrictions.
 
@@ -7,18 +7,18 @@ Welcome to TheGallery.Land! This repository is a treasure trove of high-quality,
 
 Visit our website TheGallery.Land to browse through our vast collection of images. You can use the search functionality to find images relevant to your specific needs or explore different categories to discover new inspirations.
 
-##Contributing
+## Contributing
 
 We encourage con!
 tributions from the community to enrich our image library further. If you have royalty-free images that you would like to contribute, follow these steps:
 
     Create a pull request, and we'll review your contributions before merging them into the main collection.
 
-##License
+## License
 
 All images in TheGallery.Land are available under the CC0 1.0 Universal (CC0 1.0) Public Domain Dedication. This means you can use the images for any purpose without seeking permission or giving credit to the original creators.
 
-##Share the Love
+## Share the Love
 
 If you find TheGallery.Land helpful, consider sharing it with your friends, colleagues, and fellow developers. Together, we can build a valuable resource for the entire community.
 Contact
