@@ -115,6 +115,7 @@ img {
   align-items: center;
   line-height: 150%;
   border-radius: 12px;
+  box-shadow: #000 0px 0px 5px;
 }
 
 .highlight {
